@@ -6,15 +6,19 @@ const cors = require("cors");
 // EXPRESS SERVER
 
 const app = express();
-app.set("port", process.env.PORT || 3306);
+app.set("port", process.env.PORT || 3000);
 app.use(express.json());
 app.use(cors());
 
 // HOME ROUTE -- "/"
 
-app.get("/", (req, res) => {
-  res.json({ msg: "Welcome To My Revision Exercise!" });
-});
+// app.get("/", (req, res) => {
+// });
+
+route.get("^/$|/node_revision", (req, res) => {
+    res.json({ msg: "Welcome To My Revision Exercise!" });
+    res.status(200).sendFile(path.join(__dirname, "./view/index.html"));
+  });
 
 // LISTEN FOR API CALLS
 
